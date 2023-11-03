@@ -7,7 +7,10 @@ function App() {
   const [cv, setCv] = useState({name: "carl"});
 
   function handleChange(e) {
-    setCv({name: e.target.value});
+    const currCv = {...cv}
+    const field = e.target.id;
+    currCv[field] = e.target.value;
+    setCv(currCv);
   }
 
   return (

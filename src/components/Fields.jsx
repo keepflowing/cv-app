@@ -1,7 +1,8 @@
 export default function Fields ({onChange}) {
   return (
   <div>
-    <input onChange={onChange}></input>
+    <input id='name' onChange={onChange}></input>
+    <input id='title' onChange={onChange}></input>
   </div>
   )
 }
