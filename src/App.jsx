@@ -4,13 +4,10 @@ import CV from './components/CV'
 import './styles/App.css'
 
 function App() {
-  const [cv, setCv] = useState({name: "carl"});
+  const [cv, setCv] = useState({});
 
   function handleChange(e) {
-    const currCv = {...cv}
-    const field = e.target.id;
-    currCv[field] = e.target.value;
-    setCv(currCv);
+    setCv({...cv, [e.target.id]: e.target.value});
   }
 
   return (
