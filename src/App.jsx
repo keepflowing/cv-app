@@ -1,24 +1,12 @@
 import { useState } from 'react'
-import Fields from './components/Fields'
-import CV from './components/CV'
 import './styles/App.css'
 
 function App() {
-  const [cv, setCv] = useState({});
-
-  function handleChange(e) {
-    setCv({...cv, [e.target.id]: e.target.value});
-  }
+  const [personalForm, setPersonalForm] = useState(true)
 
   return (
     <>
-      <Fields 
-        cv={cv}
-        onChange={handleChange}
-      />
-      <CV 
-        cv={cv}
-      />
+      {personalForm && <h1>Hello World</h1>}
     </>
   )
 }
