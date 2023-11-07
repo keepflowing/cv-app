@@ -6,7 +6,7 @@ import './styles/App.css'
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({})
-  const [educationInfo, setEducationInfo] = useState([{}, {}, {}])
+  const [educationInfo, setEducationInfo] = useState([{}])
   // const [isOpen, setIsOpen] = useState(null);
   
   const personalInfoChange = (e) => {
@@ -16,14 +16,24 @@ function App() {
 
   const educationInfoChange = (e) => {
     const index = parseInt(e.target.id)
-    const id = e.target.id.replace(/[0-9]/g, '');
-    educationInfo[index][id] = e.target.value;
+    const id = e.target.id.replace(/[0-9]/g, '')
+    educationInfo[index][id] = e.target.value
     setEducationInfo([...educationInfo])
   }
 
   const educationFieldRemoval = (e) => {
     const id = parseInt(e.target.id)
     educationInfo.splice(id, 1)
+    for (let i = 0; i < educationInfo.length; i++) {
+      document.getElementById(`${i}degree`).value = 
+        educationInfo[i].degree ? educationInfo[i].degree : ''
+      document.getElementById(`${i}school`).value = 
+        educationInfo[i].school ? educationInfo[i].school : ''
+      document.getElementById(`${i}sDate`).value = 
+        educationInfo[i].sDate ? educationInfo[i].sDate : ''
+      document.getElementById(`${i}eDate`).value = 
+        educationInfo[i].eDate ? educationInfo[i].eDate : ''
+    }
     setEducationInfo([...educationInfo])
   }
 
