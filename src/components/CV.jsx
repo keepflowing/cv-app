@@ -1,11 +1,12 @@
-const Field = ({index, degree, school, sDate, eDate}) => {
+const Field = ({index, first, fName, second, sName, sDate, eDate, desc = null}) => {
   return (
     <div>
       <h3>{index}.</h3>
-      <p>Degree: {degree}</p>
-      <p>School: {school}</p>
+      <p>{fName}: {first}</p>
+      <p>{sName}: {second}</p>
       <p>Start date: {sDate}</p>
       <p>End date: {eDate}</p>
+      <p>{desc}</p>
     </div>
   )
 }
@@ -15,10 +16,12 @@ const generateEduField = (obj) => {
     <>
       {obj.map((field,index) => 
       <Field
-        key={Math.random()}
+        key={index}
         index={index+1}
-        degree={field.degree}
-        school={field.school}
+        first={field.degree}
+        fName='Degree'
+        second={field.school}
+        sName='School'
         sDate={field.sDate}
         eDate={field.eDate}
       />)}
@@ -26,8 +29,27 @@ const generateEduField = (obj) => {
   )
 }
 
+const generateExField = (obj) => {
+  return (
+    <>
+      {obj.map((field,index) => 
+      <Field
+        key={index}
+        index={index+1}
+        first={field.title}
+        fName='Title'
+        second={field.company}
+        sName='Company'
+        sDateW={field.sDate}
+        eDateW={field.eDate}
+        desc={field.desc}
+      />)}
+    </>
+  )
+}
+
 export default function CV({
-  personalInfo, educationInfo}) {
+  personalInfo, educationInfo, experienceInfo}) {
   return (
     <div className="cv">
       <div>
@@ -40,6 +62,10 @@ export default function CV({
     <div>
       <h1>Education:</h1>
       {generateEduField(educationInfo)}
+    </div>
+    <div>
+      <h1>Experience:</h1>
+      {generateExField(experienceInfo)}
     </div>
     </div>
   )

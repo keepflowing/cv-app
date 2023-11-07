@@ -2,11 +2,12 @@ import { useState } from 'react'
 import CV from './components/CV';
 import PersonalForm from './components/PersonalForm';
 import EducationForm from './components/EducationForm';
-import './styles/App.css'
+import ExperienceForm from './components/ExperienceForm';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({})
   const [educationInfo, setEducationInfo] = useState([{}])
+  const [experienceInfo, setExperienceInfo] = useState([{}])
   // const [isOpen, setIsOpen] = useState(null);
   
   const personalInfoChange = (e) => {
@@ -42,6 +43,36 @@ function App() {
     setEducationInfo([...educationInfo])
   }
 
+  const experienceInfoChange = (e) => {
+    const index = parseInt(e.target.id)
+    const id = e.target.id.replace(/[0-9]/g, '')
+    experienceInfo[index][id] = e.target.value
+    setExperienceInfo([...experienceInfo])
+  }
+
+  const experienceFieldRemoval = (e) => {
+    const id = parseInt(e.target.id)
+    experienceInfo.splice(id, 1)
+    for (let i = 0; i < experienceInfo.length; i++) {
+      document.getElementById(`${i}title`).value = 
+        experienceInfo[i].title ? experienceInfo[i].title : ''
+      document.getElementById(`${i}company`).value = 
+       experienceInfo[i].title ? experienceInfo[i].title : ''
+      document.getElementById(`${i}sDateW`).value = 
+      experienceInfo[i].sDateW ? experienceInfo[i].sDateW : ''
+      document.getElementById(`${i}eDateW`).value = 
+      experienceInfo[i].eDateW ? experienceInfo[i].eDateW : ''
+      document.getElementById(`${i}desc`).value = 
+      experienceInfo[i].desc ? experienceInfo[i].desc : ''
+    }
+    setExperienceInfo([...experienceInfo])
+  }
+
+  const experienceFieldAddition = () => {
+    experienceInfo.push({})
+    setExperienceInfo([...experienceInfo])
+  }
+
   return (
     <>
       <PersonalForm
@@ -53,9 +84,16 @@ function App() {
         onRemoval={educationFieldRemoval}
         onAdd={educationFieldAddition}
       />
+      <ExperienceForm
+        experienceInfo={experienceInfo}
+        onChange={experienceInfoChange}
+        onRemoval={experienceFieldRemoval}
+        onAdd={experienceFieldAddition}
+      />
       <CV
         personalInfo={personalInfo}
         educationInfo={educationInfo}
+        experienceInfo={experienceInfo}
       />
     </>
   )
