@@ -1,9 +1,42 @@
 html {
-  background-color: black;
-  color: white;
+  background-color: rgb(1, 34, 42);
 }
 
-.cv {
+#root {
+  display: flex;
+}
+
+#cv {
   background-color: white;
   color: black;
+  width: 50%;
+}
+
+#cv h1 {
+  text-align: center;
+}
+
+#form {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 50%;
+}
+
+.inputField {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.inputField input {
+  width: 40%;
+}
+
+.contact {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
 }
