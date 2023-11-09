@@ -19,7 +19,7 @@ export default function PersonalForm({personal, handleChange}) {
         ></input>
       </div>
       <div className='inputField'>
-        <label htmlFor='nameInput'>Phone number:</label>
+        <label htmlFor='numberInput'>Phone number:</label>
         <input 
           id='numberInput' 
           onChange={(e) => handleChange(e, 'number')}

@@ -2,43 +2,43 @@ export default function ExperienceForm({item, onChange, experience, setExperienc
   return (
     <>
       <div className='inputField'>
-        <label htmlFor='roleInput'>Role:</label>
+        <label htmlFor={item.id+'r'}>Role:</label>
         <input 
-          name='roleInput' 
+          id={item.id+'r'}
           onChange={(e) => onChange(e, experience, setExperience, item.id, 'role')}
           value={item.role}
         ></input>
       </div>
       <div className='inputField'>
-        <label htmlFor='companyInput'>Company:</label>
+        <label htmlFor={item.id+'c'}>Company:</label>
         <input 
-          name='companyInput' 
+          id={item.id+'c'} 
           onChange={(e) => onChange(e, experience, setExperience, item.id, 'company')}
           value={item.company}
         ></input>
       </div>
       <div className='inputField'>
-        <label htmlFor='startInput'>Start Date:</label>
+        <label htmlFor={item.id+'s'}>Start Date:</label>
         <input 
-          type='date'
+          id={item.id+'s'}
           name='startInput' 
           onChange={(e) => onChange(e, experience, setExperience, item.id, 'startDate')}
           value={item.startDate}
         ></input>
       </div>
       <div className='inputField'>
-       <label htmlFor='endInput'>End Date:</label>
+       <label htmlFor={item.id+'e'}>End Date:</label>
         <input
-          type='date'
+          id={item.id+'e'}
           name='endInput' 
           onChange={(e) => onChange(e, experience, setExperience, item.id, 'endDate')}
           value={item.endDate}
         ></input>
       </div>
       <div className='inputField'>
-        <label htmlFor='descriptionInput'>Description:</label>
+        <label htmlFor={item.id+'d'}>Description:</label>
         <input 
-          name='descriptionInput' 
+          id={item.id+'d'}
           onChange={(e) => onChange(e, experience, setExperience, item.id, 'description')}
           value={item.description}
         ></input>
