@@ -27,12 +27,12 @@ html {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 25%;
+  padding-right: 25%;
 }
 
 .inputField input {
-  width: 40%;
+  width: 50%;
 }
 
 .contact {
