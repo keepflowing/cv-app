@@ -87,6 +87,9 @@ function App() {
           onFieldChange={onFieldChange}
           onFieldDelete={onFieldDelete}
         />
+        <button 
+          onClick={() => onFieldAdd(education, setEducation, 'education')}
+        >+</button>
         <GenerateExForms 
           experience={experience} 
           setExperience={setExperience}

@@ -21,7 +21,7 @@ export default function ExperienceForm({item, onChange, experience, setExperienc
         <label htmlFor={item.id+'s'}>Start Date:</label>
         <input 
           id={item.id+'s'}
-          name='startInput' 
+          type='date'
           onChange={(e) => onChange(e, experience, setExperience, item.id, 'startDate')}
           value={item.startDate}
         ></input>
@@ -30,7 +30,7 @@ export default function ExperienceForm({item, onChange, experience, setExperienc
        <label htmlFor={item.id+'e'}>End Date:</label>
         <input
           id={item.id+'e'}
-          name='endInput' 
+          type='date'
           onChange={(e) => onChange(e, experience, setExperience, item.id, 'endDate')}
           value={item.endDate}
         ></input>

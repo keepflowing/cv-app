@@ -21,7 +21,7 @@ export default function EducationForm({item, onChange, education, setEducation, 
         <label htmlFor={item.id+'sd'}>Start Date:</label>
         <input 
           id={item.id+'sd'}
-          name='startInput' 
+          type='date'
           onChange={(e) => onChange(e, education, setEducation, item.id, 'startDate')}
           value={item.startDate}
         ></input>
@@ -30,7 +30,7 @@ export default function EducationForm({item, onChange, education, setEducation, 
        <label htmlFor={item.id+'e'}>End Date:</label>
         <input
           id={item.id+'e'}
-          name='endInput' 
+          type='date'
           onChange={(e) => onChange(e, education, setEducation, item.id, 'endDate')}
           value={item.endDate}
         ></input>
