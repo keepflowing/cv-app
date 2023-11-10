@@ -19,7 +19,7 @@ function App() {
       title: 'Full Stack Web-Dev',
       school: 'The Odin Project',
       startDate: '2023-07-12',
-      endDate: '-'
+      endDate: ''
     }
   ])
   const [experience, setExperience] = useState([
@@ -28,8 +28,8 @@ function App() {
       role: 'Full Stack Developer',
       company: 'Google',
       startDate: '2023-12-31',
-      endDate: '-',
-      description: ''
+      endDate: '',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel iaculis orci. Donec ut faucibus ipsum, ut placerat eros. Nulla tincidunt iaculis quam vel auctor.'
     }
   ])
 
@@ -86,19 +86,15 @@ function App() {
           setEducation={setEducation}
           onFieldChange={onFieldChange}
           onFieldDelete={onFieldDelete}
+          onFieldAdd={() => onFieldAdd(education, setEducation, 'education')}
         />
-        <button 
-          onClick={() => onFieldAdd(education, setEducation, 'education')}
-        >+</button>
         <GenerateExForms 
           experience={experience} 
           setExperience={setExperience}
           onFieldChange={onFieldChange}
           onFieldDelete={onFieldDelete}
+          onFieldAdd={() => onFieldAdd(experience, setExperience, 'work')}
         />
-        <button 
-          onClick={() => onFieldAdd(experience, setExperience, 'work')}
-        >+</button>
       </div>
       <CV 
         personal={personal}

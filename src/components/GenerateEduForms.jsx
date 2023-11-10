@@ -1,8 +1,9 @@
 import EducationForm from "./EducationForm";
 
-export default function GenerateEduForms({education, setEducation, onFieldChange, onFieldDelete}) {
+export default function GenerateEduForms({
+  education, setEducation, onFieldChange, onFieldDelete, onFieldAdd}) {
   return (
-    <>
+    <div className='formSection'>
       <h2>Education:</h2>
       {education.map(item => <EducationForm
         key={item.id}
@@ -12,6 +13,9 @@ export default function GenerateEduForms({education, setEducation, onFieldChange
         onChange={onFieldChange}
         onDelete={() => onFieldDelete(item.id, education, setEducation)}
       />)}
-    </>
+      <button 
+        onClick={onFieldAdd}
+      >+</button>
+    </div>
   )
 }

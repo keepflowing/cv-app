@@ -1,6 +1,6 @@
 export default function PersonalForm({personal, handleChange}) {
   return (
-    <div>
+    <div className='formSection'>
       <h2>Personal Information:</h2>
       <div className='inputField'>
         <label htmlFor='nameInput'>Full Name:</label>
