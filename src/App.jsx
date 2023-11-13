@@ -1,37 +1,31 @@
 import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
+import examplePerson from './components/examplePerson'
 
-import CV from './components/CV';
-import PersonalForm from './components/PersonalForm';
-import GenerateEduForms from './components/GenerateEduForms';
-import GenerateExForms from './components/GenerateExForms';
+import CV from './components/CV'
+import TopBar from './components/TopBar'
+import PersonalForm from './components/PersonalForm'
+import GenerateEduForms from './components/GenerateEduForms'
+import GenerateExForms from './components/GenerateExForms'
 
-function App() {
-  const [personal, setPersonal] = useState({
-    name: 'John Smith',
-    email: 'johnsmith@gmail.com',
-    number: '555-555-555',
-    location: 'Mars, The Solar System'
-  })
-  const [education, setEducation] = useState([
-    {
-      id: uuidv4(),
-      title: 'Full Stack Web-Dev',
-      school: 'The Odin Project',
-      startDate: '2023-07-12',
-      endDate: ''
-    }
-  ])
-  const [experience, setExperience] = useState([
-    {
-      id: uuidv4(),
-      role: 'Full Stack Developer',
-      company: 'Google',
-      startDate: '2023-12-31',
-      endDate: '',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel iaculis orci. Donec ut faucibus ipsum, ut placerat eros. Nulla tincidunt iaculis quam vel auctor.'
-    }
-  ])
+const example = examplePerson()
+
+function App() { 
+  const [personal, setPersonal] = useState(example.personal)
+  const [education, setEducation] = useState([example.education])
+  const [experience, setExperience] = useState([example.experience])
+
+  const formReset = () => {
+    setPersonal({name: '', email: '', number: '', location: ''})
+    setEducation([])
+    setExperience([])
+  }
+
+  const formExample = () => {
+    setPersonal(example.personal)
+    setEducation([example.education])
+    setExperience([example.experience])
+  }
 
   const onPersonalChange = (e, field) => {
     setPersonal({...personal, [field]: e.target.value})
@@ -76,31 +70,37 @@ function App() {
 
   return (
     <>
-      <div id='form'>
-        <PersonalForm 
-          personal={personal} 
-          handleChange={onPersonalChange}
-        />
-        <GenerateEduForms 
-          education={education} 
-          setEducation={setEducation}
-          onFieldChange={onFieldChange}
-          onFieldDelete={onFieldDelete}
-          onFieldAdd={() => onFieldAdd(education, setEducation, 'education')}
-        />
-        <GenerateExForms 
-          experience={experience} 
-          setExperience={setExperience}
-          onFieldChange={onFieldChange}
-          onFieldDelete={onFieldDelete}
-          onFieldAdd={() => onFieldAdd(experience, setExperience, 'work')}
+      <TopBar
+        onReset={formReset}
+        onExample={formExample}
+      />
+      <div id='container'>
+        <div id='form'>
+          <PersonalForm 
+            personal={personal} 
+            handleChange={onPersonalChange}
+          />
+          <GenerateEduForms 
+            education={education} 
+            setEducation={setEducation}
+            onFieldChange={onFieldChange}
+            onFieldDelete={onFieldDelete}
+            onFieldAdd={() => onFieldAdd(education, setEducation, 'education')}
+          />
+          <GenerateExForms 
+            experience={experience} 
+            setExperience={setExperience}
+            onFieldChange={onFieldChange}
+            onFieldDelete={onFieldDelete}
+            onFieldAdd={() => onFieldAdd(experience, setExperience, 'work')}
+          />
+        </div>
+        <CV 
+          personal={personal}
+          education={education}
+          experience={experience}
         />
       </div>
-      <CV 
-        personal={personal}
-        education={education}
-        experience={experience}
-      />
     </>
   )
 }

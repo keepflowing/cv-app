@@ -34,6 +34,7 @@ export default function PersonalForm({personal, handleChange}) {
           value={personal.location}
         ></input>
       </div>
+      <br></br>
     </div>
   )
 }

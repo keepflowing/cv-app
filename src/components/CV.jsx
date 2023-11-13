@@ -1,3 +1,7 @@
+import { AiOutlineMail } from 'react-icons/ai'
+import { SlScreenSmartphone } from 'react-icons/sl'
+import { IoLocationOutline } from 'react-icons/io5'
+
 function EducationField({item}) {
   return (
     <div className='subSection'>
@@ -35,9 +39,18 @@ export default function CV ({personal, education, experience}) {
       <h1>{personal.name}</h1>
       <hr className='solid'></hr>
       <div className='contact'>
-        <p>{personal.email}</p>
-        <p>{personal.number}</p>
-        <p>{personal.location}</p>
+        <div>
+          <AiOutlineMail/>
+          <p>{personal.email}</p>
+        </div>
+        <div>
+          <SlScreenSmartphone/>
+          <p>{personal.number}</p>
+        </div>
+        <div>
+          <IoLocationOutline/>
+          <p>{personal.location}</p>
+        </div>
       </div>
       <div className='section'>
         <h2>Education</h2>
