@@ -1,3 +1,5 @@
+import { FaRegTrashAlt } from 'react-icons/fa'
+
 export default function EducationForm({item, onChange, education, setEducation, onDelete}) {
   return (
     <div className='formFlex'>
@@ -37,7 +39,11 @@ export default function EducationForm({item, onChange, education, setEducation, 
           ></input>
         </div>
       </div>
-      <button onClick={onDelete}>-</button>
+      <button 
+        className='red'
+        onClick={onDelete}>
+        <FaRegTrashAlt/>
+      </button>
     </div>
   )
 }

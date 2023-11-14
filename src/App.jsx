@@ -14,6 +14,7 @@ function App() {
   const [personal, setPersonal] = useState(example.personal)
   const [education, setEducation] = useState([example.education])
   const [experience, setExperience] = useState([example.experience])
+  const [openForm, setOpenForm] = useState(0)
 
   const formReset = () => {
     setPersonal({name: '', email: '', number: '', location: ''})
@@ -77,10 +78,14 @@ function App() {
       <div id='container'>
         <div id='form'>
           <PersonalForm 
+            open={openForm}
+            setOpen={setOpenForm}
             personal={personal} 
             handleChange={onPersonalChange}
           />
           <GenerateEduForms 
+            open={openForm}
+            setOpen={setOpenForm}
             education={education} 
             setEducation={setEducation}
             onFieldChange={onFieldChange}
@@ -88,6 +93,8 @@ function App() {
             onFieldAdd={() => onFieldAdd(education, setEducation, 'education')}
           />
           <GenerateExForms 
+            open={openForm}
+            setOpen={setOpenForm}
             experience={experience} 
             setExperience={setExperience}
             onFieldChange={onFieldChange}

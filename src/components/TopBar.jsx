@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { RiFontColor } from "react-icons/ri";
+import { IoPrintOutline } from "react-icons/io5";
+import { GrPowerReset } from "react-icons/gr";
+import { IoPersonAddOutline } from "react-icons/io5";
 
 const changeFont = (font) => {
   const r = document.querySelector(':root');
@@ -23,13 +27,27 @@ export default function TopBar({onReset, onExample}) {
   return (
     <nav id='topBar'>
       <button onClick={() => setOpen(!open)}>
+        <RiFontColor/>
+        <br></br>
         Font
         {open && <DropDown/>}
       </button>
-      <button onClick={window.print}>Print</button>
+      <button onClick={window.print}>
+        <IoPrintOutline/>
+        <br></br>
+        Print
+      </button>
       <h1>Create CV</h1>
-      <button onClick={onReset}>Reset</button>
-      <button onClick={onExample}>Example</button>
+      <button onClick={onReset}>
+        <GrPowerReset/>
+        <br></br>
+        Reset
+      </button>
+      <button onClick={onExample}>
+        <IoPersonAddOutline/>
+        <br></br>
+        Example
+      </button>
     </nav>
   )
 }

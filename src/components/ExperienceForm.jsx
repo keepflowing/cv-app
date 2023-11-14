@@ -1,3 +1,5 @@
+import { FaRegTrashAlt } from "react-icons/fa"
+
 export default function ExperienceForm({item, onChange, experience, setExperience, onDelete}) {
   return (
     <div className='formFlex'>
@@ -45,7 +47,11 @@ export default function ExperienceForm({item, onChange, experience, setExperienc
           ></input>
         </div>
       </div>
-      <button onClick={onDelete}>-</button>
+      <button 
+        className='red'
+        onClick={onDelete}>
+        <FaRegTrashAlt/>
+      </button>
     </div>
   )
 }
