@@ -2,6 +2,10 @@ html {
   background-color: rgb(231, 231, 231);
 }
 
+:root {
+  --cv-font: "Times New Roman", Times, serif;
+}
+
 #root {
   margin: auto;
   width: 80%;
@@ -20,6 +24,14 @@ html {
 
 }
 
+.dropDown {
+  position: absolute;
+  background-color: blue;
+  top: 15%;
+  width: 500px;
+  height: 200px;
+}
+
 #container {
   display: flex;
   justify-content: space-between;
@@ -33,6 +45,7 @@ html {
   -webkit-box-shadow: 7px 8px 22px -1px rgba(0,0,0,0.2);
   -moz-box-shadow: 7px 8px 22px -1px rgba(0,0,0,0.2);
   color: black;
+  font-family: var(--cv-font);
   width: 64%;
 }
 
