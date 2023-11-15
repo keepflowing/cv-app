@@ -1,5 +1,11 @@
-# Create CV Application
+# Generate CV Application
 
-Currently being built with Vite + React
+### Live view: https://cv-app-puce.vercel.app/
 
+### Todo:
+- Dark Mode
+- Change Designs
+- Improve UI
+
+Created with React + Vite
 
