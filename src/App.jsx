@@ -63,6 +63,7 @@ function App() {
       }
     }
     setCategory([...category, item])
+    return item.id
   }
 
   const onFieldDelete = (id, field, setField) => {

@@ -9,9 +9,9 @@ const changeFont = (font) => {
   r.style.setProperty('--cv-font', font);
 }
 
-function DropDown() {
+function DropDown({onLeave}) {
   return (
-    <div className="dropDown">
+    <div className="dropDown" onMouseLeave={onLeave}>
       <a onClick={() => changeFont('Arial, sans-serif')}>Arial</a>
       <a onClick={() => changeFont('Comic Sans MS, Comic Sans, cursive')}>Comic Sans</a>
       <a onClick={() => changeFont('JetBrains Mono')}>JetBrains Mono</a>
@@ -26,11 +26,13 @@ export default function TopBar({onReset, onExample}) {
 
   return (
     <nav id='topBar'>
-      <button onClick={() => setOpen(!open)}>
+      <button 
+        onMouseEnter={() => setOpen(true)}
+        >
         <RiFontColor/>
         <br></br>
         Font
-        {open && <DropDown/>}
+        {open && <DropDown onLeave={() => setOpen(false)}/>}
       </button>
       <button onClick={window.print}>
         <IoPrintOutline/>

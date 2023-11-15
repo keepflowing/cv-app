@@ -1,7 +1,10 @@
 import { FaRegTrashAlt } from "react-icons/fa"
 
-export default function ExperienceForm({item, onChange, experience, setExperience, onDelete}) {
+export default function ExperienceForm({
+  open, setOpen, item, onChange, experience, setExperience, onDelete}) {
   return (
+    <>
+    {open === item.id ?
     <div className='formFlex'>
       <div>
         <div className='inputField'>
@@ -52,6 +55,13 @@ export default function ExperienceForm({item, onChange, experience, setExperienc
         onClick={onDelete}>
         <FaRegTrashAlt/>
       </button>
-    </div>
+    </div> : 
+      <>
+        <button onClick={() => setOpen(item.id)}>
+        {item.company ? item.company : 'Untitled'}
+        </button>
+        <br></br>
+      </>}
+    </>
   )
 }
