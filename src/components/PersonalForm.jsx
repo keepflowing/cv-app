@@ -13,7 +13,7 @@ export default function PersonalForm({open, setOpen, personal, handleChange}) {
             id='nameInput' 
             onChange={(e) => handleChange(e, 'name')}
             value={personal.name}
-          ></input>
+          />
         </div>
         <div className='inputField'>
           <label htmlFor='emailInput'>Email:</label>
@@ -21,7 +21,7 @@ export default function PersonalForm({open, setOpen, personal, handleChange}) {
             id='emailInput' 
             onChange={(e) => handleChange(e, 'email')}
             value={personal.email}
-          ></input>
+          />
         </div>
         <div className='inputField'>
           <label htmlFor='numberInput'>Phone number:</label>
@@ -29,7 +29,7 @@ export default function PersonalForm({open, setOpen, personal, handleChange}) {
             id='numberInput' 
             onChange={(e) => handleChange(e, 'number')}
             value={personal.number}
-          ></input>
+          />
         </div>
         <div className='inputField'>
           <label htmlFor='locationInput'>Location:</label>
@@ -37,12 +37,12 @@ export default function PersonalForm({open, setOpen, personal, handleChange}) {
             id='locationInput' 
             onChange={(e) => handleChange(e, 'location')}
             value={personal.location}
-          ></input>
+          />
         </div>
-        <br></br>
+        <br/>
       </>
       }
-      <button 
+      <button type='button'
         className='expand'
         onClick={() => open !== 0 ? setOpen(0) : setOpen(-1)}>
           {open !== 0 ? <SlArrowDown/> : <SlArrowUp/>}

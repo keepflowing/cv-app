@@ -37,7 +37,7 @@ export default function CV ({personal, education, experience}) {
   return (
     <div id='cv'>
       <h1>{personal.name}</h1>
-      <hr className='solid'></hr>
+      <hr className='solid'/>
       <div className='contact'>
         <div>
           <AiOutlineMail/>

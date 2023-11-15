@@ -23,14 +23,14 @@ export default function GenerateExForms({
           onChange={onFieldChange}
           onDelete={() => onFieldDelete(item.id, experience, setExperience)}
         />)}
-        <button 
+        <button type='button' className='edit' 
           onClick={() => setOpenForm(onFieldAdd())}
         >
           +
         </button>
-        <br></br>
+        <br/>
       </>}
-    <button 
+    <button type='button' 
       className='expand'
       onClick={() => open !== 2 ? setOpen(2) : setOpen(-1)}>
         {open !== 2 ? <SlArrowDown/> : <SlArrowUp/>}

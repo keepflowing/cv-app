@@ -9,14 +9,66 @@ const changeFont = (font) => {
   r.style.setProperty('--cv-font', font);
 }
 
+const getFont = () => {
+  const r = document.querySelector(':root');
+  return r.style.getPropertyValue('--cv-font');
+}
+
 function DropDown({onLeave}) {
+  const [oldFont, setOldFont] = useState(null)
+  const [changed, setChanged] = useState(null)
   return (
-    <div className="dropDown" onMouseLeave={onLeave}>
-      <a onClick={() => changeFont('Arial, sans-serif')}>Arial</a>
-      <a onClick={() => changeFont('Comic Sans MS, Comic Sans, cursive')}>Comic Sans</a>
-      <a onClick={() => changeFont('JetBrains Mono')}>JetBrains Mono</a>
-      <a onClick={() => changeFont('Times New Roman, Times, serif')}>Times New Roman</a>
-      <a onClick={() => changeFont('Roboto')}>Roboto</a>
+    <div 
+      className="dropDown" 
+      onMouseLeave={() => {
+        onLeave()
+        changed ? setChanged(null) : changeFont(oldFont) 
+      }}>
+      <a 
+        onMouseEnter={() => {
+          setOldFont(getFont())
+          changeFont('Arial, sans-serif')
+          }}
+        onMouseLeave={() => changed ? setChanged(null) : changeFont(oldFont) }
+        onClick={() => {
+          setChanged(1)}}
+      >Arial</a>
+      <a 
+        onMouseEnter={() => {
+          setOldFont(getFont())
+          changeFont('Comic Sans MS, Comic Sans, cursive')
+          }}
+        onMouseLeave={() => changed ? setChanged(null) : changeFont(oldFont) }
+        onClick={() => {
+          setChanged(1)}}
+      >Comic Sans</a>
+      <a 
+        onMouseEnter={() => {
+          setOldFont(getFont())
+          changeFont('JetBrains Mono')
+          }}
+        onMouseLeave={() => changed ? setChanged(null) : changeFont(oldFont) }
+        onClick={() => {
+          setChanged(1)}}
+      >JetBrains Mono</a>
+      <a 
+        onMouseEnter={() => {
+          setOldFont(getFont())
+          changeFont('Times New Roman, Times, serif')
+          }}
+        onMouseLeave={() => changed ? setChanged(null) : changeFont(oldFont) }
+        onClick={() => {
+          setChanged(1)}}
+      >Times New Roman</a>
+      <a 
+        onMouseEnter={() => {
+          setOldFont(getFont())
+          changeFont('Roboto')
+          }}
+         onMouseLeave={() => changed ? setChanged(null) : changeFont(oldFont) }
+        onClick={() => {
+          setChanged(1)}}
+      >Roboto</a>
     </div>
   )
 }
@@ -26,28 +78,28 @@ export default function TopBar({onReset, onExample}) {
 
   return (
     <nav id='topBar'>
-      <button 
+      <button type='button' 
         onMouseEnter={() => setOpen(true)}
         >
         <RiFontColor/>
-        <br></br>
+        <br/>
         Font
         {open && <DropDown onLeave={() => setOpen(false)}/>}
       </button>
-      <button onClick={window.print}>
+      <button type='button' onClick={window.print}>
         <IoPrintOutline/>
-        <br></br>
+        <br/>
         Print
       </button>
       <h1>Create CV</h1>
-      <button onClick={onReset}>
+      <button type='button' onClick={onReset}>
         <GrPowerReset/>
-        <br></br>
+        <br/>
         Reset
       </button>
-      <button onClick={onExample}>
+      <button type='button' onClick={onExample}>
         <IoPersonAddOutline/>
-        <br></br>
+        <br/>
         Example
       </button>
     </nav>

@@ -23,15 +23,15 @@ export default function GenerateEduForms({
           onChange={onFieldChange}
           onDelete={() => onFieldDelete(item.id, education, setEducation)}
         />)}
-        <button 
+        <button type='button' 
         className='edit'
         onClick={() => setOpenForm(onFieldAdd())}
         >
           +
         </button>
-        <br></br>
+        <br/>
       </>}
-      <button 
+      <button type='button'
         className='expand'
         onClick={() => open !== 1 ? setOpen(1) : setOpen(-1)}>
           {open !== 1 ? <SlArrowDown/> : <SlArrowUp/>}
